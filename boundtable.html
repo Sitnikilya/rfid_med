@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="ru"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="ru"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="ru"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="ru"> <!--<![endif]-->
+<head>
+   <!--- Basic Page Needs -->
+   <meta charset="utf-8">
+   <title>МЕДТЕХ - BoundTable</title>
+   <meta name="description" content="RFID технологии в медицине">  
+   <meta name="author" content="Медтех">
+
+   <!-- Mobile Specific Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="css/base.css">
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <style>
+      /* Стили для галереи */
+      .gallery {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 15px;
+         margin: 20px 0;
+      }
+      .gallery-item {
+         width: calc(33.333% - 10px);
+         cursor: pointer;
+         transition: transform 0.3s;
+      }
+      .gallery-item:hover {
+         transform: scale(1.03);
+      }
+      .gallery-item img {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 4px;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      /* Модальное окно */
+      .modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0,0,0,0.9);
+         overflow: auto;
+         opacity: 0;
+         transition: opacity 0.3s;
+      }
+      .modal.show {
+         opacity: 1;
+      }
+      .modal-content {
+         margin: auto;
+         display: block;
+         max-width: 90%;
+         max-height: 90%;
+         margin-top: 5vh;
+         animation: zoom 0.3s;
+      }
+      @keyframes zoom {
+         from {transform: scale(0.8)}
+         to {transform: scale(1)}
+      }
+      .close {
+         position: absolute;
+         top: 20px;
+         right: 30px;
+         color: white;
+         font-size: 35px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: 0.3s;
+      }
+      .close:hover {
+         color: #ccc;
+      }
+      
+      /* Видео контейнер */
+      .video-container {
+         position: relative;
+         padding-bottom: 56.25%; /* 16:9 */
+         height: 0;
+         overflow: hidden;
+         margin: 20px 0;
+         background: #000;
+         border-radius: 4px;
+      }
+      .video-container video {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+      }
+      
+      @media (max-width: 768px) {
+         .gallery-item {
+            width: calc(50% - 8px);
+         }
+      }
+      @media (max-width: 480px) {
+         .gallery-item {
+            width: 100%;
+         }
+         .gallery-item img {
+            height: 150px;
+         }
+      }
+   </style>
+</head>
+
+<body class="homepage">
+
+   <div id="preloader"> 
+      <div id="status">
+         <img src="images/loader.gif" height="60" width="60" alt="">
+         <div class="loader">Загрузка...</div>
+      </div>
+   </div>
+   
+   <!-- Header -->
+   <header id="main-header">
+      <div class="row header-inner">
+         <nav id="nav-wrap">         
+            <a class="mobile-btn" href="#nav-wrap" title="Показать меню">
+               <span class='menu-text'>Показать меню</span>
+               <span class="menu-icon"></span>
+            </a>
+            <a class="mobile-btn" href="#" title="Скрыть меню">
+               <span class='menu-text'>Скрыть меню</span>
+               <span class="menu-icon"></span>
+            </a>         
+            <ul id="nav" class="nav">
+               <li><a class="smoothscroll" href="index.html#hero">Главная</a></li>
+               <li><a class="smoothscroll" href="index.html#portfolio">Каталог</a></li>
+               <li><a class="smoothscroll" href="index.html#about">О нас</a></li>
+               <li><a class="smoothscroll" href="index.html#journal">Блог</a></li>            
+               <li><a class="smoothscroll" href="index.html#contact">Контакты</a></li>
+            </ul> 
+         </nav>
+      </div>
+   </header> 
+
+   <!-- Page Title -->
+   <section id="page-title">   
+      <div class="row">
+         <div class="twelve columns">
+            <h1>BoundTable<span>.</span></h1>
+            <p>Инновационный RFID-стол для медицинских учреждений</p>
+         </div>          
+      </div>
+   </section>
+
+   <!-- Content -->
+   <section id="content">
+      <div class="row portfolio-content">
+         <div class="entry tab-whole nine columns centered">
+            <header class="entry-header">
+               <h1 class="entry-title">BoundTable</h1>        
+               <div class="entry-meta">
+                  <ul>
+                     <li>Последнее обновление: 25.03.2025</li>
+                     <span class="meta-sep">•</span>              
+                     <li>
+                        <a rel="skills tag" title="" href="#">RFID</a>, 
+                        <a rel="skills tag" title="" href="#">Медицина</a>
+                     </li>
+                  </ul>
+               </div> 
+            </header>
+
+            <!-- Видео -->
+            <div class="entry-content-media">
+               <div class="video-container">
+                  <video width="100%" controls poster="images/video-poster.jpg">
+                     <source src="videos/boundtable-demo.mp4" type="video/mp4">
+                     Ваш браузер не поддерживает видео тег.
+                  </video>
+               </div> 
+            </div>
+
+            <div class="entry-content">
+               <p class="lead">BoundTable - инновационное решение для автоматизации учета медицинских инструментов с использованием RFID-технологий.</p>
+               <p>Самый плоский в отрасли распределение магнитного поля;<br>
+               Самый точный в отрасли диапазон распределения;<br>
+               Самое равномерное в отрасли распределение магнитного поля.</p>
+
+               <h4>Применение:</h4>
+               <p>Проверка хирургических инструментов, управление инструментами,<br>
+               отслеживание лекарств, управление запасами в розничной торговле и т.д.</p>
+
+               <!-- Галерея изображений -->
+               <h4>Галерея:</h4>
+               <div class="gallery">
+                  <div class="gallery-item" onclick="openModal('images/portfolio/boundtable1.jpg')">
+                     <img src="images/portfolio/boundtable1.jpg" alt="BoundTable вид 1">
+                  </div>
+                  <div class="gallery-item" onclick="openModal('images/portfolio/boundtable2.jpg')">
+                     <img src="images/portfolio/boundtable2.jpg" alt="BoundTable вид 2">
+                  </div>
+                  <div class="gallery-item" onclick="openModal('images/portfolio/boundtable3.jpg')">
+                     <img src="images/portfolio/boundtable3.jpg" alt="BoundTable вид 3">
+                  </div>
+               </div>
+
+               <h4>Преимущества:</h4>
+               <ol>
+                  <li><strong>Самый плоский:</strong> максимальное расстояние идентификации RFID-меток ближнего поля во всех точках BoundTable (540×430 мм) составляет от 40 мм до 45 мм с отклонением вверх и вниз менее 5 мм;</li>
+                  <li><strong>Самый точный:</strong> полностью исключает считывание RFID-меток ближнего поля за пределами BoundTable;</li>
+                  <li><strong>Самый равномерный:</strong> Нет слепых зон в области идентификации на BoundTable, и после продолжительного считывания можно заметить, что RFID-метки ближнего поля во всех областях идентификации считываются практически одинаковое количество раз;</li>
+                  <li><strong>Нулевое обратное рассеяние:</strong> метка не будет считана, даже если она прикреплена к обратной стороне BoundTable;</li>
+                  <li><strong>Функция обновления жестом:</strong> Чтобы обновить общее количество считанных меток на BoundTable, достаточно просто провести рукой;</li>
+                  <li><strong>Функция отображения количества:</strong> Общее количество считанных меток отображается интуитивно понятно, нет необходимости подключаться к главному компьютеру;</li>
+                  <li><strong>С перезаряжаемыми батареями 18650:</strong> Доступные и недорогие, после полной зарядки может работать непрерывно в течение недели.</li>
+               </ol>
+
+               <!-- Второе видео -->
+               <h4>Демонстрация работы:</h4>
+               <div class="video-container">
+                  <video width="100%" controls poster="images/video-poster2.jpg">
+                     <source src="videos/boundtable-demo2.mp4" type="video/mp4">
+                     Ваш браузер не поддерживает видео тег.
+                  </video>
+               </div>
+            </div>
+
+            <div class="pagenav group">
+               <span class="prev"><a href="#" rel="prev">Предыдущий</a></span>
+               <span class="next"><a href="#" rel="next">Следующий</a></span>                  
+            </div>                                         
+         </div>
+      </div>
+   </section>
+
+   <!-- Footer -->
+   <footer>
+      <div class="row">       
+         <div class="six columns tab-whole footer-about">
+            <h3>О компании МЕДТЕХ</h3>     
+            <p>МЕДТЕХ - российский разработчик и поставщик RFID-решений для медицинской отрасли. Мы помогаем медицинским учреждениям внедрять современные технологии автоматизации и контроля.</p>
+            <p>Наши решения позволяют повысить эффективность работы, сократить затраты и улучшить качество медицинских услуг.</p>        
+         </div>
+
+         <div class="six columns tab-whole right-cols">
+            <div class="row">
+               <div class="columns">
+                  <h3 class="address">Контакты</h3>
+                  <p>
+                  Москва, ул. Медицинская, 15<br>
+                  Бизнес-центр "Технопарк"<br>
+                  Офис 305
+                  </p>
+                  <ul>
+                    <li><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+                    <li><a href="tel:+79031234567">+7 (903) 123-45-67</a></li>
+                    <li><a href="mailto:info@medtech-rfid.ru">info@medtech-rfid.ru</a></li>
+                  </ul>                  
+               </div>
+               <div class="columns last">
+                  <h3 class="contact">Мы в соцсетях</h3>
+                  <ul>
+                     <li><a href="#">ВКонтакте</a></li>
+                     <li><a href="#">Telegram</a></li>
+                     <li><a href="#">YouTube</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+         <p class="copyright">&copy; 2025 МЕДТЕХ. Все права защищены.</p>        
+         <div id="go-top">
+            <a class="smoothscroll" title="Наверх" href="#hero"><span>Наверх</span><i class="fa fa-long-arrow-up"></i></a>
+         </div>
+      </div>
+   </footer>
+
+   <!-- Модальное окно для изображений -->
+   <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+   </div>
+
+   <!-- JavaScript -->
+   <script>
+      // Функция открытия модального окна
+      function openModal(imageSrc) {
+         const modal = document.getElementById('imageModal');
+         const modalImg = document.getElementById('modalImage');
+         
+         modal.style.display = "block";
+         modalImg.src = imageSrc;
+         
+         // Небольшая задержка для плавного появления
+         setTimeout(() => {
+            modal.classList.add('show');
+         }, 10);
+         
+         // Закрытие при клике вне изображения
+         modal.onclick = function(e) {
+            if (e.target === modal) {
+               closeModal();
+            }
+         };
+      }
+      
+      // Функция закрытия модального окна
+      function closeModal() {
+         const modal = document.getElementById('imageModal');
+         modal.classList.remove('show');
+         
+         // Задержка перед скрытием для анимации
+         setTimeout(() => {
+            modal.style.display = "none";
+         }, 300);
+      }
+      
+      // Закрытие по клавише ESC
+      document.addEventListener('keydown', function(event) {
+         if (event.key === "Escape") {
+            closeModal();
+         }
+      });
+      
+      // Закрытие прелоадера после загрузки страницы
+      window.addEventListener('load', function() {
+         const preloader = document.getElementById('preloader');
+         setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+               preloader.style.display = 'none';
+            }, 300);
+         }, 500);
+      });
+   </script>
+</body>
+</html>

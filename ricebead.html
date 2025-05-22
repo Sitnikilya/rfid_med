@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="ru"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="ru"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="ru"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="ru"> <!--<![endif]-->
+<head>
+   <!--- Basic Page Needs -->
+   <meta charset="utf-8">
+   <title>МЕДТЕХ - Rice Bead & Pythagoras Tag</title>
+   <meta name="description" content="Метки для медицинских инструментов">  
+   <meta name="author" content="Медтех">
+
+   <!-- Mobile Specific Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="css/base.css">
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <style>
+      /* Стили для галереи */
+      .gallery {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 15px;
+         margin: 20px 0;
+      }
+      .gallery-item {
+         width: calc(33.333% - 10px);
+         cursor: pointer;
+         transition: transform 0.3s;
+      }
+      .gallery-item:hover {
+         transform: scale(1.03);
+      }
+      .gallery-item img {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 4px;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      /* Модальное окно */
+      .modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0,0,0,0.9);
+         overflow: auto;
+         opacity: 0;
+         transition: opacity 0.3s;
+      }
+      .modal.show {
+         opacity: 1;
+      }
+      .modal-content {
+         margin: auto;
+         display: block;
+         max-width: 90%;
+         max-height: 90%;
+         margin-top: 5vh;
+         animation: zoom 0.3s;
+      }
+      @keyframes zoom {
+         from {transform: scale(0.8)}
+         to {transform: scale(1)}
+      }
+      .close {
+         position: absolute;
+         top: 20px;
+         right: 30px;
+         color: white;
+         font-size: 35px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: 0.3s;
+      }
+      .close:hover {
+         color: #ccc;
+      }
+      
+      /* Особенности товара */
+      .product-section {
+         margin-bottom: 40px;
+      }
+      .product-title {
+         color: #2B2B2B;
+         border-bottom: 2px solid #E8E8E8;
+         padding-bottom: 10px;
+         margin-bottom: 20px;
+      }
+      .features-list {
+         margin: 30px 0;
+         padding-left: 20px;
+      }
+      .features-list li {
+         margin-bottom: 15px;
+         line-height: 1.6;
+      }
+      
+      @media (max-width: 768px) {
+         .gallery-item {
+            width: calc(50% - 8px);
+         }
+      }
+      @media (max-width: 480px) {
+         .gallery-item {
+            width: 100%;
+         }
+         .gallery-item img {
+            height: 150px;
+         }
+      }
+   </style>
+</head>
+
+<body class="homepage">
+
+   <div id="preloader"> 
+      <div id="status">
+         <img src="images/loader.gif" height="60" width="60" alt="">
+         <div class="loader">Загрузка...</div>
+      </div>
+   </div>
+   
+   <!-- Header -->
+   <header id="main-header">
+      <div class="row header-inner">
+         <nav id="nav-wrap">         
+            <a class="mobile-btn" href="#nav-wrap" title="Показать меню">
+               <span class='menu-text'>Показать меню</span>
+               <span class="menu-icon"></span>
+            </a>
+            <a class="mobile-btn" href="#" title="Скрыть меню">
+               <span class='menu-text'>Скрыть меню</span>
+               <span class="menu-icon"></span>
+            </a>         
+            <ul id="nav" class="nav">
+               <li><a class="smoothscroll" href="index.html#hero">Главная</a></li>
+               <li><a class="smoothscroll" href="index.html#portfolio">Каталог</a></li>
+               <li><a class="smoothscroll" href="index.html#about">О нас</a></li>
+               <li><a class="smoothscroll" href="index.html#journal">Блог</a></li>            
+               <li><a class="smoothscroll" href="index.html#contact">Контакты</a></li>
+            </ul> 
+         </nav>
+      </div>
+   </header> 
+
+   <!-- Page Title -->
+   <section id="page-title">   
+      <div class="row">
+         <div class="twelve columns">
+            <h1>Rice Bead & Pythagoras Tag<span>.</span></h1>
+            <p>Специализированные RFID-метки для медицинских инструментов</p>
+         </div>          
+      </div>
+   </section>
+
+   <!-- Content -->
+   <section id="content">
+      <div class="row portfolio-content">
+         <div class="entry tab-whole nine columns centered">
+            <header class="entry-header">
+               <h1 class="entry-title">Rice Bead & Pythagoras Tag</h1>        
+               <div class="entry-meta">
+                  <ul>
+                     <li>Последнее обновление: 25.03.2025</li>
+                     <span class="meta-sep">•</span>              
+                     <li>
+                        <a rel="skills tag" title="" href="#">RFID</a>, 
+                        <a rel="skills tag" title="" href="#">Медицина</a>
+                     </li>
+                  </ul>
+               </div> 
+            </header>
+
+            <!-- Галерея изображений -->
+            <div class="gallery">
+               <div class="gallery-item" onclick="openModal('images/portfolio/rice-bead1.jpg')">
+                  <img src="images/portfolio/rice-bead1.jpg" alt="Rice Bead - вид 1">
+               </div>
+               <div class="gallery-item" onclick="openModal('images/portfolio/rice-bead2.jpg')">
+                  <img src="images/portfolio/rice-bead2.jpg" alt="Rice Bead - вид 2">
+               </div>
+               <div class="gallery-item" onclick="openModal('images/portfolio/pythagoras-tag.jpg')">
+                  <img src="images/portfolio/pythagoras-tag.jpg" alt="Pythagoras Tag">
+               </div>
+            </div>
+
+            <div class="entry-content">
+               <div class="product-section">
+                  <h3 class="product-title">Rice Bead</h3>
+                  <ul class="features-list">
+                     <li>Наследие многолетних японских разработок;</li>
+                     <li>Самые маленькие и надежные антиметаллические метки в отрасли;</li>
+                     <li>Идеально встраиваются или крепятся к небольшим инструментам;</li>
+                     <li>UHF RFID метка (5×1.6×1.6 мм);</li>
+                     <li>Выдерживают стерилизацию паром, обработку ферментными растворами, ультразвуковую очистку и другие методы обработки.</li>
+                  </ul>
+               </div>
+
+               <div class="product-section">
+                  <h3 class="product-title">Pythagoras Tag</h3>
+                  <ul class="features-list">
+                     <li>При наложении меток друг на друга качество считывания не ухудшается;</li>
+                     <li>До 2048 бит памяти могут быть записаны за 100 мс (только Pythagoras Tag);</li>
+                     <li>Поддержка EAS (электронной системы защиты от краж), не требует серверной базы данных (только Pythagoras Tag).</li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="pagenav group">
+               <span class="prev"><a href="boundarea.html" rel="prev">BoundArea</a></span>
+               <span class="next"><a href="#" rel="next">Следующий товар</a></span>                  
+            </div>                                         
+         </div>
+      </div>
+   </section>
+
+   <!-- Footer -->
+   <footer>
+      <div class="row">       
+         <div class="six columns tab-whole footer-about">
+            <h3>О компании МЕДТЕХ</h3>     
+            <p>МЕДТЕХ - российский разработчик и поставщик RFID-решений для медицинской отрасли. Мы помогаем медицинским учреждениям внедрять современные технологии автоматизации и контроля.</p>
+            <p>Наши решения позволяют повысить эффективность работы, сократить затраты и улучшить качество медицинских услуг.</p>        
+         </div>
+
+         <div class="six columns tab-whole right-cols">
+            <div class="row">
+               <div class="columns">
+                  <h3 class="address">Контакты</h3>
+                  <p>
+                  Москва, ул. Медицинская, 15<br>
+                  Бизнес-центр "Технопарк"<br>
+                  Офис 305
+                  </p>
+                  <ul>
+                    <li><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+                    <li><a href="tel:+79031234567">+7 (903) 123-45-67</a></li>
+                    <li><a href="mailto:info@medtech-rfid.ru">info@medtech-rfid.ru</a></li>
+                  </ul>                  
+               </div>
+               <div class="columns last">
+                  <h3 class="contact">Мы в соцсетях</h3>
+                  <ul>
+                     <li><a href="#">ВКонтакте</a></li>
+                     <li><a href="#">Telegram</a></li>
+                     <li><a href="#">YouTube</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+         <p class="copyright">&copy; 2025 МЕДТЕХ. Все права защищены.</p>        
+         <div id="go-top">
+            <a class="smoothscroll" title="Наверх" href="#hero"><span>Наверх</span><i class="fa fa-long-arrow-up"></i></a>
+         </div>
+      </div>
+   </footer>
+
+   <!-- Модальное окно для изображений -->
+   <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+   </div>
+
+   <!-- JavaScript -->
+   <script>
+      // Функция открытия модального окна
+      function openModal(imageSrc) {
+         const modal = document.getElementById('imageModal');
+         const modalImg = document.getElementById('modalImage');
+         
+         modal.style.display = "block";
+         modalImg.src = imageSrc;
+         
+         setTimeout(() => {
+            modal.classList.add('show');
+         }, 10);
+         
+         modal.onclick = function(e) {
+            if (e.target === modal) {
+               closeModal();
+            }
+         };
+      }
+      
+      // Функция закрытия модального окна
+      function closeModal() {
+         const modal = document.getElementById('imageModal');
+         modal.classList.remove('show');
+         
+         setTimeout(() => {
+            modal.style.display = "none";
+         }, 300);
+      }
+      
+      // Закрытие по клавише ESC
+      document.addEventListener('keydown', function(event) {
+         if (event.key === "Escape") {
+            closeModal();
+         }
+      });
+      
+      // Закрытие прелоадера после загрузки страницы
+      window.addEventListener('load', function() {
+         const preloader = document.getElementById('preloader');
+         setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+               preloader.style.display = 'none';
+            }, 300);
+         }, 500);
+      });
+   </script>
+</body>
+</html>
